@@ -1,0 +1,9 @@
+c:\users\miguel\documents\visual studio 2013\Projects\Water Automation\Water Automation\bin\Debug\Water Automation.exe.config
+C:\Users\Miguel\documents\visual studio 2013\Projects\Water Automation\Water Automation\bin\Debug\Water Automation.exe
+C:\Users\Miguel\documents\visual studio 2013\Projects\Water Automation\Water Automation\bin\Debug\Water Automation.pdb
+C:\Users\Miguel\documents\visual studio 2013\Projects\Water Automation\Water Automation\obj\Debug\Water Automation.csprojResolveAssemblyReference.cache
+C:\Users\Miguel\documents\visual studio 2013\Projects\Water Automation\Water Automation\obj\Debug\Water_Automation.mainForm.resources
+C:\Users\Miguel\documents\visual studio 2013\Projects\Water Automation\Water Automation\obj\Debug\Water_Automation.Properties.Resources.resources
+C:\Users\Miguel\documents\visual studio 2013\Projects\Water Automation\Water Automation\obj\Debug\Water Automation.csproj.GenerateResource.Cache
+C:\Users\Miguel\documents\visual studio 2013\Projects\Water Automation\Water Automation\obj\Debug\Water Automation.exe
+C:\Users\Miguel\documents\visual studio 2013\Projects\Water Automation\Water Automation\obj\Debug\Water Automation.pdb
