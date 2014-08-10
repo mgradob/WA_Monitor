@@ -38,7 +38,9 @@ namespace Water_Automation
         BindingList<LogByDate> logsList = new BindingList<LogByDate>();
         BindingList<TimeoutLog> timeoutsList = new BindingList<TimeoutLog>();
         BindingList<InvalidDataLog> invalidDataList = new BindingList<InvalidDataLog>();
-        BindingList<EvapotranspirationModel> etoChartList = new BindingList<EvapotranspirationModel>();
+
+        BindingList<LogByDate> chartList = new BindingList<LogByDate>();
+        Boolean isGraphedS1 = false, isGraphedS2 = false, isGraphedS3 = false, isGraphedS4 = false, isGraphedS5 = false, isGraphedS6 = false, isGraphedEto = false, isGraphedPoints = false;
 
         List<String> avPorts = new List<string>();
         SerialPort comPort;
@@ -64,12 +66,18 @@ namespace Water_Automation
             timer.Elapsed += new ElapsedEventHandler(timerHandler);
 
             chartEto.Series["Evapotranspiration"].ChartType = SeriesChartType.Line;
-            chartEto.Series["Evapotranspiration"].MarkerStyle = MarkerStyle.Circle;
-            chartEto.Series["Evapotranspiration"].ToolTip = "#VALY";
 
-            chartEto.ChartAreas["etoChartArea"].AxisX.Minimum = etoChartList.Count;
+            chartEto.ChartAreas["etoChartArea"].AxisX.Minimum = chartList.Count;
             chartEto.ChartAreas["etoChartArea"].AxisX.MajorGrid.Enabled = false;
             chartEto.ChartAreas["etoChartArea"].AxisY.MajorGrid.Enabled = false;
+
+            chartEto.Series["Sensor1"].Enabled = false;
+            chartEto.Series["Sensor2"].Enabled = false;
+            chartEto.Series["Sensor3"].Enabled = false;
+            chartEto.Series["Sensor4"].Enabled = false;
+            chartEto.Series["Sensor5"].Enabled = false;
+            chartEto.Series["Sensor6"].Enabled = false;
+            chartEto.Series["Evapotranspiration"].Enabled = false;
 
             try
             {
@@ -273,6 +281,12 @@ namespace Water_Automation
                                     lblEto.Text = "" + logByDate.evapotranspiration + " mm";
                                     lblWndSpd.Text = "" + logByDate.wind_speed + " m/s";
 
+                                    if (logByDate.timeout_DAAD == 1) tbx_timeout.AppendText("Sensor Node 1 at " + logByDate.dateTime + "\n");
+                                    if (logByDate.timeout_DA55 == 1) tbx_timeout.AppendText("Sensor Node 2 at " + logByDate.dateTime + "\n");
+                                    if (logByDate.timeout_c == 1) tbx_timeout.AppendText("Sensor Node C at " + logByDate.dateTime + "\n");
+                                    if (logByDate.timeout_climate_node == 1) tbx_timeout.AppendText("Climate Node at " + logByDate.dateTime + "\n");
+                                    if (logByDate.timeout_pump_node == 1) tbx_timeout.AppendText("Pump Node at " + logByDate.dateTime + "\n");
+
                                     writeToFile(logByDate.dataToString());
 
                                     writeToXively(logByDate);
@@ -332,9 +346,14 @@ namespace Water_Automation
             // Fill graph log            
             this.Invoke(new MethodInvoker(delegate()
             {
-                EvapotranspirationModel eto = new EvapotranspirationModel(logByDate.evapotranspiration);
-                etoChartList.Add(eto);
-                chartEto.Series["Evapotranspiration"].Points.AddXY(eto.date_time, eto.eto);
+                chartList.Add(logByDate);
+                chartEto.Series["Evapotranspiration"].Points.AddXY(logByDate.dateTime, logByDate.evapotranspiration);
+                chartEto.Series["Sensor1"].Points.AddXY(logByDate.dateTime, logByDate.moisture_1);
+                chartEto.Series["Sensor2"].Points.AddXY(logByDate.dateTime, logByDate.moisture_2);
+                chartEto.Series["Sensor3"].Points.AddXY(logByDate.dateTime, logByDate.moisture_3);
+                chartEto.Series["Sensor4"].Points.AddXY(logByDate.dateTime, logByDate.moisture_4);
+                chartEto.Series["Sensor5"].Points.AddXY(logByDate.dateTime, logByDate.moisture_5);
+                chartEto.Series["Sensor6"].Points.AddXY(logByDate.dateTime, logByDate.moisture_6);
             }));
         }
 
@@ -438,6 +457,185 @@ namespace Water_Automation
         private void timer_clock_Tick(object sender, EventArgs e)
         {
             lblTime.Text = DateTime.Now.TimeOfDay.ToString();
+        }
+
+        // -----------------------------
+        // Method: cbxSensor1_CheckedChanged()
+        //  Checks for the item selected in the checkbox.
+        //  Arguments: object, EventArgs.
+        //  Returns: void.
+        // -----------------------------
+        private void cbxSensor1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSensor1.Checked && cbxSensor1.CheckState.Equals(CheckState.Checked))
+            {
+                chartEto.Series["Sensor1"].Enabled = true;
+                isGraphedS1 = true;
+            }
+            else
+            {
+                chartEto.Series["Sensor1"].Enabled = false;
+                isGraphedS1 = false;
+            }
+        }
+
+        // -----------------------------
+        // Method: cbxSensor1_CheckedChanged()
+        //  Checks for the item selected in the checkbox.
+        //  Arguments: object, EventArgs.
+        //  Returns: void.
+        // -----------------------------
+        private void cbxSensor2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSensor2.Checked && cbxSensor2.CheckState.Equals(CheckState.Checked))
+            {
+                chartEto.Series["Sensor2"].Enabled = true;
+                isGraphedS2 = true;
+            }
+            else
+            {
+                chartEto.Series["Sensor2"].Enabled = false;
+                isGraphedS2 = false;
+            }
+        }
+
+        // -----------------------------
+        // Method: cbxSensor1_CheckedChanged()
+        //  Checks for the item selected in the checkbox.
+        //  Arguments: object, EventArgs.
+        //  Returns: void.
+        // -----------------------------
+        private void cbxSensor3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSensor3.Checked && cbxSensor3.CheckState.Equals(CheckState.Checked))
+            {
+                chartEto.Series["Sensor3"].Enabled = true;
+                isGraphedS3 = true;
+            }
+            else
+            {
+                chartEto.Series["Sensor3"].Enabled = false;
+                isGraphedS3 = false;
+            }
+        }
+
+        // -----------------------------
+        // Method: cbxSensor1_CheckedChanged()
+        //  Checks for the item selected in the checkbox.
+        //  Arguments: object, EventArgs.
+        //  Returns: void.
+        // -----------------------------
+        private void cbxSensor4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSensor4.Checked && cbxSensor4.CheckState.Equals(CheckState.Checked))
+            {
+                chartEto.Series["Sensor4"].Enabled = true;
+                isGraphedS4 = true;
+            }
+            else
+            {
+                chartEto.Series["Sensor4"].Enabled = false;
+                isGraphedS4 = false;
+            }
+        }
+
+        // -----------------------------
+        // Method: cbxSensor1_CheckedChanged()
+        //  Checks for the item selected in the checkbox.
+        //  Arguments: object, EventArgs.
+        //  Returns: void.
+        // -----------------------------
+        private void cbxSensor5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSensor5.Checked && cbxSensor5.CheckState.Equals(CheckState.Checked))
+            {
+                chartEto.Series["Sensor5"].Enabled = true;
+                isGraphedS5 = true;
+            }
+            else
+            {
+                chartEto.Series["Sensor5"].Enabled = false;
+                isGraphedS5 = false;
+            }
+        }
+
+        // -----------------------------
+        // Method: cbxSensor1_CheckedChanged()
+        //  Checks for the item selected in the checkbox.
+        //  Arguments: object, EventArgs.
+        //  Returns: void.
+        // -----------------------------
+        private void cbxSensor6_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSensor6.Checked && cbxSensor6.CheckState.Equals(CheckState.Checked))
+            {
+                chartEto.Series["Sensor6"].Enabled = true;
+                isGraphedS6 = true;
+            }
+            else
+            {
+                chartEto.Series["Sensor6"].Enabled = false;
+                isGraphedS6 = false;
+            }
+        }
+
+        // -----------------------------
+        // Method: cbxSensor1_CheckedChanged()
+        //  Checks for the item selected in the checkbox.
+        //  Arguments: object, EventArgs.
+        //  Returns: void.
+        // -----------------------------
+        private void cbxEto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxEto.Checked && cbxEto.CheckState.Equals(CheckState.Checked))
+            {
+                chartEto.Series["Evapotranspiration"].Enabled = true;
+                isGraphedEto = true;
+            }
+            else
+            {
+                chartEto.Series["Evapotranspiration"].Enabled = false;
+                isGraphedEto = false;
+            }
+        }
+
+        // -----------------------------
+        // Method: cbxSensor1_CheckedChanged()
+        //  Checks to display points on graphs.
+        //  Arguments: object, EventArgs.
+        //  Returns: void.
+        // -----------------------------
+        private void cbxPoints_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxPoints.Checked && cbxPoints.CheckState.Equals(CheckState.Checked))
+            {
+                chartEto.Series["Evapotranspiration"].MarkerStyle = MarkerStyle.Circle;
+                chartEto.Series["Evapotranspiration"].ToolTip = "#VALY";
+                chartEto.Series["Sensor1"].MarkerStyle = MarkerStyle.Circle;
+                chartEto.Series["Sensor1"].ToolTip = "#VALY";
+                chartEto.Series["Sensor2"].MarkerStyle = MarkerStyle.Circle;
+                chartEto.Series["Sensor2"].ToolTip = "#VALY";
+                chartEto.Series["Sensor3"].MarkerStyle = MarkerStyle.Circle;
+                chartEto.Series["Sensor3"].ToolTip = "#VALY";
+                chartEto.Series["Sensor4"].MarkerStyle = MarkerStyle.Circle;
+                chartEto.Series["Sensor4"].ToolTip = "#VALY";
+                chartEto.Series["Sensor5"].MarkerStyle = MarkerStyle.Circle;
+                chartEto.Series["Sensor5"].ToolTip = "#VALY";
+                chartEto.Series["Sensor6"].MarkerStyle = MarkerStyle.Circle;
+                chartEto.Series["Sensor6"].ToolTip = "#VALY";
+                isGraphedPoints = true;
+            }
+            else
+            {
+                chartEto.Series["Evapotranspiration"].MarkerStyle = MarkerStyle.None;
+                chartEto.Series["Sensor1"].MarkerStyle = MarkerStyle.None;
+                chartEto.Series["Sensor2"].MarkerStyle = MarkerStyle.None;
+                chartEto.Series["Sensor3"].MarkerStyle = MarkerStyle.None;
+                chartEto.Series["Sensor4"].MarkerStyle = MarkerStyle.None;
+                chartEto.Series["Sensor5"].MarkerStyle = MarkerStyle.None;
+                chartEto.Series["Sensor6"].MarkerStyle = MarkerStyle.None;
+                isGraphedPoints = false;
+            }
         }
     }
 }

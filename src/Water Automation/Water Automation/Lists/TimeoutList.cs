@@ -13,7 +13,7 @@ namespace Water_Automation.Models
 
         public TimeoutLog()
         {
-            tData_date = DateTime.Now.ToString("yyyy/mm/dd h:mm:ss");
+            tData_date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Water_Automation.Models
 
         public InvalidDataLog()
         {
-            iData_date = DateTime.Now.ToString("yyyy/mm/dd h:mm:ss");
+            iData_date = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
     }
 }

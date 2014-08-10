@@ -36,6 +36,12 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.data_grid = new System.Windows.Forms.DataGridView();
@@ -75,6 +81,16 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer_clock = new System.Windows.Forms.Timer(this.components);
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.cbxPoints = new System.Windows.Forms.CheckBox();
+            this.cbxEto = new System.Windows.Forms.CheckBox();
+            this.cbxSensor6 = new System.Windows.Forms.CheckBox();
+            this.cbxSensor5 = new System.Windows.Forms.CheckBox();
+            this.cbxSensor4 = new System.Windows.Forms.CheckBox();
+            this.cbxSensor3 = new System.Windows.Forms.CheckBox();
+            this.cbxSensor2 = new System.Windows.Forms.CheckBox();
+            this.cbxSensor1 = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.data_grid)).BeginInit();
             this.panelSerialPort.SuspendLayout();
             this.panelLatestData.SuspendLayout();
@@ -89,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartEto)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -145,7 +162,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.data_grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.data_grid.Size = new System.Drawing.Size(597, 365);
+            this.data_grid.Size = new System.Drawing.Size(720, 365);
             this.data_grid.TabIndex = 1;
             // 
             // label1
@@ -175,22 +192,22 @@
             // tbx_invalid_data
             // 
             this.tbx_invalid_data.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbx_invalid_data.Font = new System.Drawing.Font("Roboto Thin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbx_invalid_data.Font = new System.Drawing.Font("Roboto Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbx_invalid_data.ForeColor = System.Drawing.Color.DimGray;
             this.tbx_invalid_data.Location = new System.Drawing.Point(2, 27);
             this.tbx_invalid_data.Name = "tbx_invalid_data";
-            this.tbx_invalid_data.Size = new System.Drawing.Size(180, 141);
+            this.tbx_invalid_data.Size = new System.Drawing.Size(236, 141);
             this.tbx_invalid_data.TabIndex = 6;
             this.tbx_invalid_data.Text = "";
             // 
             // tbx_timeout
             // 
             this.tbx_timeout.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbx_timeout.Font = new System.Drawing.Font("Roboto Thin", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbx_timeout.Font = new System.Drawing.Font("Roboto Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbx_timeout.ForeColor = System.Drawing.Color.DimGray;
             this.tbx_timeout.Location = new System.Drawing.Point(2, 24);
             this.tbx_timeout.Name = "tbx_timeout";
-            this.tbx_timeout.Size = new System.Drawing.Size(180, 131);
+            this.tbx_timeout.Size = new System.Drawing.Size(236, 131);
             this.tbx_timeout.TabIndex = 7;
             this.tbx_timeout.Text = "";
             // 
@@ -447,9 +464,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tbx_invalid_data);
             this.panel1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(869, 42);
+            this.panel1.Location = new System.Drawing.Point(992, 11);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(185, 171);
+            this.panel1.Size = new System.Drawing.Size(241, 171);
             this.panel1.TabIndex = 13;
             // 
             // panel2
@@ -458,9 +475,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.tbx_timeout);
             this.panel2.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(869, 219);
+            this.panel2.Location = new System.Drawing.Point(992, 188);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(185, 158);
+            this.panel2.Size = new System.Drawing.Size(241, 158);
             this.panel2.TabIndex = 14;
             // 
             // panel3
@@ -471,7 +488,7 @@
             this.panel3.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(13, 382);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(850, 25);
+            this.panel3.Size = new System.Drawing.Size(973, 25);
             this.panel3.TabIndex = 14;
             // 
             // lblStatus
@@ -505,7 +522,7 @@
             this.panel4.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(12, 413);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(851, 253);
+            this.panel4.Size = new System.Drawing.Size(1033, 253);
             this.panel4.TabIndex = 15;
             // 
             // chartEto
@@ -525,8 +542,38 @@
             series1.Font = new System.Drawing.Font("Roboto Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series1.Legend = "Legend1";
             series1.Name = "Evapotranspiration";
+            series2.ChartArea = "etoChartArea";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Sensor1";
+            series3.ChartArea = "etoChartArea";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Sensor2";
+            series4.ChartArea = "etoChartArea";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Sensor3";
+            series5.ChartArea = "etoChartArea";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Sensor4";
+            series6.ChartArea = "etoChartArea";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "Sensor5";
+            series7.ChartArea = "etoChartArea";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "Sensor6";
             this.chartEto.Series.Add(series1);
-            this.chartEto.Size = new System.Drawing.Size(845, 247);
+            this.chartEto.Series.Add(series2);
+            this.chartEto.Series.Add(series3);
+            this.chartEto.Series.Add(series4);
+            this.chartEto.Series.Add(series5);
+            this.chartEto.Series.Add(series6);
+            this.chartEto.Series.Add(series7);
+            this.chartEto.Size = new System.Drawing.Size(1027, 247);
             this.chartEto.TabIndex = 6;
             // 
             // panel5
@@ -536,20 +583,20 @@
             this.panel5.Controls.Add(this.label10);
             this.panel5.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel5.Location = new System.Drawing.Point(869, 416);
+            this.panel5.Location = new System.Drawing.Point(992, 381);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(185, 64);
+            this.panel5.Size = new System.Drawing.Size(241, 25);
             this.panel5.TabIndex = 9;
             // 
             // btnExport
             // 
             this.btnExport.BackColor = System.Drawing.Color.Teal;
             this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.Font = new System.Drawing.Font("Roboto Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.Font = new System.Drawing.Font("Roboto Light", 9F);
             this.btnExport.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnExport.Location = new System.Drawing.Point(3, 29);
+            this.btnExport.Location = new System.Drawing.Point(125, -1);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(179, 32);
+            this.btnExport.Size = new System.Drawing.Size(117, 30);
             this.btnExport.TabIndex = 2;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = false;
@@ -559,7 +606,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 7);
+            this.label10.Location = new System.Drawing.Point(3, 4);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(117, 18);
             this.label10.TabIndex = 1;
@@ -571,16 +618,16 @@
             this.panel6.Controls.Add(this.lblTime);
             this.panel6.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel6.Location = new System.Drawing.Point(869, 382);
+            this.panel6.Location = new System.Drawing.Point(992, 351);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(185, 25);
+            this.panel6.Size = new System.Drawing.Size(241, 25);
             this.panel6.TabIndex = 10;
             // 
             // lblTime
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(3, 4);
+            this.lblTime.Location = new System.Drawing.Point(14, 4);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(39, 18);
             this.lblTime.TabIndex = 1;
@@ -592,12 +639,130 @@
             this.timer_clock.Interval = 1000;
             this.timer_clock.Tick += new System.EventHandler(this.timer_clock_Tick);
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel7.Controls.Add(this.cbxPoints);
+            this.panel7.Controls.Add(this.cbxEto);
+            this.panel7.Controls.Add(this.cbxSensor6);
+            this.panel7.Controls.Add(this.cbxSensor5);
+            this.panel7.Controls.Add(this.cbxSensor4);
+            this.panel7.Controls.Add(this.cbxSensor3);
+            this.panel7.Controls.Add(this.cbxSensor2);
+            this.panel7.Controls.Add(this.cbxSensor1);
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel7.Location = new System.Drawing.Point(1051, 412);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(183, 254);
+            this.panel7.TabIndex = 10;
+            // 
+            // cbxPoints
+            // 
+            this.cbxPoints.AutoSize = true;
+            this.cbxPoints.Location = new System.Drawing.Point(6, 200);
+            this.cbxPoints.Name = "cbxPoints";
+            this.cbxPoints.Size = new System.Drawing.Size(58, 19);
+            this.cbxPoints.TabIndex = 23;
+            this.cbxPoints.Text = "Points";
+            this.cbxPoints.UseVisualStyleBackColor = true;
+            this.cbxPoints.CheckedChanged += new System.EventHandler(this.cbxPoints_CheckedChanged);
+            // 
+            // cbxEto
+            // 
+            this.cbxEto.AutoSize = true;
+            this.cbxEto.Location = new System.Drawing.Point(6, 175);
+            this.cbxEto.Name = "cbxEto";
+            this.cbxEto.Size = new System.Drawing.Size(120, 19);
+            this.cbxEto.TabIndex = 22;
+            this.cbxEto.Text = "Evapotranspiration";
+            this.cbxEto.UseVisualStyleBackColor = true;
+            this.cbxEto.CheckedChanged += new System.EventHandler(this.cbxEto_CheckedChanged);
+            // 
+            // cbxSensor6
+            // 
+            this.cbxSensor6.AutoSize = true;
+            this.cbxSensor6.Location = new System.Drawing.Point(6, 150);
+            this.cbxSensor6.Name = "cbxSensor6";
+            this.cbxSensor6.Size = new System.Drawing.Size(67, 19);
+            this.cbxSensor6.TabIndex = 21;
+            this.cbxSensor6.Text = "Sensor6";
+            this.cbxSensor6.UseVisualStyleBackColor = true;
+            this.cbxSensor6.CheckedChanged += new System.EventHandler(this.cbxSensor6_CheckedChanged);
+            // 
+            // cbxSensor5
+            // 
+            this.cbxSensor5.AutoSize = true;
+            this.cbxSensor5.Location = new System.Drawing.Point(6, 125);
+            this.cbxSensor5.Name = "cbxSensor5";
+            this.cbxSensor5.Size = new System.Drawing.Size(67, 19);
+            this.cbxSensor5.TabIndex = 20;
+            this.cbxSensor5.Text = "Sensor5";
+            this.cbxSensor5.UseVisualStyleBackColor = true;
+            this.cbxSensor5.CheckedChanged += new System.EventHandler(this.cbxSensor5_CheckedChanged);
+            // 
+            // cbxSensor4
+            // 
+            this.cbxSensor4.AutoSize = true;
+            this.cbxSensor4.Location = new System.Drawing.Point(7, 100);
+            this.cbxSensor4.Name = "cbxSensor4";
+            this.cbxSensor4.Size = new System.Drawing.Size(67, 19);
+            this.cbxSensor4.TabIndex = 19;
+            this.cbxSensor4.Text = "Sensor4";
+            this.cbxSensor4.UseVisualStyleBackColor = true;
+            this.cbxSensor4.CheckedChanged += new System.EventHandler(this.cbxSensor4_CheckedChanged);
+            // 
+            // cbxSensor3
+            // 
+            this.cbxSensor3.AutoSize = true;
+            this.cbxSensor3.Location = new System.Drawing.Point(7, 75);
+            this.cbxSensor3.Name = "cbxSensor3";
+            this.cbxSensor3.Size = new System.Drawing.Size(67, 19);
+            this.cbxSensor3.TabIndex = 18;
+            this.cbxSensor3.Text = "Sensor3";
+            this.cbxSensor3.UseVisualStyleBackColor = true;
+            this.cbxSensor3.CheckedChanged += new System.EventHandler(this.cbxSensor3_CheckedChanged);
+            // 
+            // cbxSensor2
+            // 
+            this.cbxSensor2.AutoSize = true;
+            this.cbxSensor2.Location = new System.Drawing.Point(6, 50);
+            this.cbxSensor2.Name = "cbxSensor2";
+            this.cbxSensor2.Size = new System.Drawing.Size(67, 19);
+            this.cbxSensor2.TabIndex = 17;
+            this.cbxSensor2.Text = "Sensor2";
+            this.cbxSensor2.UseVisualStyleBackColor = true;
+            this.cbxSensor2.CheckedChanged += new System.EventHandler(this.cbxSensor2_CheckedChanged);
+            // 
+            // cbxSensor1
+            // 
+            this.cbxSensor1.AutoSize = true;
+            this.cbxSensor1.Location = new System.Drawing.Point(6, 25);
+            this.cbxSensor1.Name = "cbxSensor1";
+            this.cbxSensor1.Size = new System.Drawing.Size(67, 19);
+            this.cbxSensor1.TabIndex = 16;
+            this.cbxSensor1.Text = "Sensor1";
+            this.cbxSensor1.UseVisualStyleBackColor = true;
+            this.cbxSensor1.CheckedChanged += new System.EventHandler(this.cbxSensor1_CheckedChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 4);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 18);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Chart data:";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(1059, 678);
+            this.ClientSize = new System.Drawing.Size(1245, 678);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -633,6 +798,8 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -677,6 +844,16 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer_clock;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox cbxSensor1;
+        private System.Windows.Forms.CheckBox cbxPoints;
+        private System.Windows.Forms.CheckBox cbxEto;
+        private System.Windows.Forms.CheckBox cbxSensor6;
+        private System.Windows.Forms.CheckBox cbxSensor5;
+        private System.Windows.Forms.CheckBox cbxSensor4;
+        private System.Windows.Forms.CheckBox cbxSensor3;
+        private System.Windows.Forms.CheckBox cbxSensor2;
     }
 }
 
